@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{LETTER_TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   GENHEALTH LETTER TEMPLATE
+   Print-ready · US Letter · GenHealth-styled
+   =========================================== */
+
+@page {
+  size: letter;
+  margin: 0.7in 0.75in 0.7in 0.75in;
+}
+
+:root {
+  --blue: #0648C0;
+  --blue-soft: #C2D8FC;
+  --ink: #0B0D10;
+  --ink-soft: #212529;
+  --cream-soft: #FAF8E3;
+  --rule: #E4E4DA;
+  --mint-deep: #55CC1F;
+
+  --sans: "Lexend", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Crimson Pro", Georgia, serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+  background: #FFFFFF;
+}
+body { padding: 0; }
+
+/* Screen-only wrapper to mimic a page when viewed in browser */
+@media screen {
+  body {
+    background: #f1eee0;
+    padding: 0.5in 0;
+  }
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 0.5in;
+    padding: 0.7in 0.75in;
+    background: #FFFFFF;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  }
+}
+@media print {
+  .sheet { padding: 0; }
+}
+
+/* ===========================================
+   LETTERHEAD
+   =========================================== */
+.letterhead {
+  margin-bottom: 22pt;
+  padding-bottom: 8pt;
+  border-bottom: 1.5pt solid var(--blue);
+}
+.letterhead .name {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 18pt;
+  letter-spacing: -0.01em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 4pt;
+  line-height: 1.1;
+}
+.letterhead .addr {
+  font-family: var(--sans);
+  font-size: 9pt;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+/* ===========================================
+   DATE + TO + RE blocks
+   =========================================== */
+.date {
+  text-align: right;
+  margin-bottom: 16pt;
+  font-size: 10.5pt;
+  color: var(--ink-soft);
+}
+.to-block {
+  margin-bottom: 14pt;
+  line-height: 1.55;
+  font-size: 10.5pt;
+}
+.to-block strong { font-weight: 700; }
+
+.re-block {
+  margin-bottom: 14pt;
+  padding: 10pt 12pt;
+  background: var(--cream-soft);
+  border-left: 3pt solid var(--blue);
+  font-size: 10.5pt;
+}
+.re-block .title {
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 4pt;
+}
+.re-block strong { font-weight: 700; }
+
+/* ===========================================
+   BODY TYPOGRAPHY
+   =========================================== */
+p {
+  margin-bottom: 9pt;
+  text-align: left;
+}
+p strong, p b { font-weight: 700; }
+p em { font-style: italic; }
+
+h2.section {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--blue);
+  margin: 14pt 0 7pt;
+  letter-spacing: -0.005em;
+}
+
+/* ===========================================
+   ISSUES TABLE
+   =========================================== */
+table.issues {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6pt 0 12pt;
+  font-size: 9.5pt;
+}
+table.issues thead {
+  background: var(--blue);
+}
+table.issues th {
+  background: var(--blue);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-weight: 600;
+  padding: 6pt 8pt;
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+table.issues td {
+  border: 0.5pt solid var(--rule);
+  padding: 6pt 8pt;
+  vertical-align: top;
+  line-height: 1.4;
+}
+table.issues tr td:first-child {
+  width: 6%;
+  text-align: center;
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--blue);
+}
+table.issues tr td:nth-child(2) { width: 47%; }
+table.issues tr td:nth-child(3) { width: 47%; color: var(--ink-soft); }
+table.issues td strong { font-weight: 700; color: var(--ink); }
+
+/* ===========================================
+   NUMBERED REQUEST LIST
+   =========================================== */
+ol.requests {
+  list-style: none;
+  padding: 0;
+  counter-reset: req;
+  margin: 4pt 0 12pt;
+}
+ol.requests li {
+  counter-increment: req;
+  padding: 3pt 0 3pt 22pt;
+  position: relative;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+ol.requests li::before {
+  content: counter(req);
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 9.5pt;
+  width: 16pt;
+  text-align: left;
+}
+ol.requests li strong { font-weight: 700; }
+
+/* ===========================================
+   SIGNATURE BLOCK
+   =========================================== */
+.signature {
+  margin-top: 22pt;
+  page-break-inside: avoid;
+  font-size: 10.5pt;
+}
+.signature .sig-line {
+  border-top: 0.5pt solid var(--ink);
+  width: 220pt;
+  margin: 22pt 0 5pt;
+}
+.signature .signer {
+  font-family: var(--sans);
+}
+.signature .signer-title {
+  font-size: 10pt;
+  color: var(--ink-soft);
+}
+
+/* ===========================================
+   GENHEALTH BADGE (used at top + bottom of letter)
+   =========================================== */
+.genhealth-badge {
+  padding: 9pt 12pt;
+  border: 0.5pt solid var(--rule);
+  border-left: 2.5pt solid var(--blue);
+  background: var(--cream-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12pt;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+.genhealth-badge.top { margin-bottom: 14pt; }
+.genhealth-badge.bottom { margin-top: 22pt; }
+.genhealth-badge .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7pt;
+  flex-shrink: 0;
+}
+.genhealth-badge .logo svg {
+  width: 14pt;
+  height: 14pt;
+  color: var(--blue);
+}
+.genhealth-badge .logo .word {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.genhealth-badge .logo .tld {
+  font-weight: 500;
+  opacity: 0.7;
+}
+.genhealth-badge .copy {
+  flex: 1;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.genhealth-badge .copy strong { color: var(--ink); font-weight: 600; }
+.genhealth-badge .copy a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===========================================
+   DISCLAIMER FOOTER
+   =========================================== */
+.disclaimer {
+  margin-top: 10pt;
+  padding-top: 7pt;
+  border-top: 0.3pt solid var(--rule);
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  font-style: italic;
+  color: #555B63;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- GenHealth attribution bar — top of letter -->
+  <div class="genhealth-badge top">
+    <div class="logo">
+      <svg viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="m526.56024 182.67761l0 0c0 -73.71044 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061405 94.37366 39.090866c25.02948 25.029465 39.09088 58.976692 39.09088 94.373695l0 0l0 0c0 73.71045 -59.75415 133.46457 -133.46454 133.46457l0 0l0 0c-73.71045 0 -133.4646 -59.75412 -133.4646 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m526.56024 777.3275l0 0c0 -73.71045 59.75415 -133.46454 133.4646 -133.46454l0 0l0 0c35.396973 0 69.34424 14.061401 94.37366 39.09088c25.02948 25.029419 39.09088 58.976685 39.09088 94.37366l0 0l0 0c0 73.71045 -59.75415 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m694.3048 480.00256l0 0c0 -73.71045 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061432 94.37372 39.09088c25.029419 25.02945 39.09082 58.976685 39.09082 94.37369l0 0l0 0c0 73.71045 -59.75409 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 182.67183l0 0c0 -73.71044 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34425 14.061405 -94.3737 39.090866c-25.029465 25.029465 -39.090866 58.976692 -39.090866 94.373695l0 0l0 0c0 73.710464 59.75412 133.46458 133.46457 133.46458l0 0l0 0c73.71045 0 133.46457 -59.75412 133.46457 -133.46458z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 777.3217l0 0c0 -73.71039 -59.75412 -133.46454 -133.46457 -133.46454l0 0l0 0c-35.397003 0 -69.34425 14.061401 -94.3737 39.09088c-25.029465 25.029419 -39.090866 58.976685 -39.090866 94.37366l0 0l0 0c0 73.71045 59.75412 133.4646 133.46457 133.4646l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m265.69492 479.9968l0 0c0 -73.71045 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34424 14.061401 -94.3737 39.09085c-25.02946 25.02948 -39.090866 58.976715 -39.090866 94.37372l0 0l0 0c0 73.71042 59.754124 133.46457 133.46457 133.46457l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m754.7533 368.7874l0 0c0 70.60547 -122.8432 127.8425 -274.37796 127.8425c-151.53476 0 -274.37796 -57.23703 -274.37796 -127.8425l0 0c64.77185 40.23935 166.42487 63.921234 274.37796 63.921234c107.953094 0 209.60611 -23.681885 274.37796 -63.921234z" fill-rule="evenodd"/><path fill="currentColor" d="m205.23622 591.53546l0 0c0 -70.60553 122.97011 -127.84256 274.66144 -127.84256c151.69128 0 274.66144 57.23703 274.66144 127.84256l0 0c-64.838806 -40.23938 -166.59686 -63.921265 -274.66144 -63.921265c-108.064606 0 -209.82266 23.681885 -274.66144 63.921265z" fill-rule="evenodd"/><path fill="currentColor" d="m256.38757 429.60492l144.75589 50.393707l-144.75589 50.393707z" fill-rule="evenodd"/><path fill="currentColor" d="m732.3954 530.401l-144.75592 -50.393738l144.75592 -50.393677z" fill-rule="evenodd"/></svg>
+      <span class="word">GenHealth<span class="tld">.ai</span></span>
+    </div>
+    <div class="copy">
+      <strong>Drafted with GenHealth — AI for DME &amp; provider workflows.</strong>
+      Helps your team automate intake, prior-auth review, and referral-source response.
+      &nbsp;&nbsp;<a href="https://genhealth.ai">genhealth.ai</a> &nbsp;·&nbsp; <a href="https://genhealth.ai/demo">Book a demo</a>
+    </div>
+  </div>
+
+  <!-- Letterhead -->
+  <header class="letterhead">
+    <div class="name">{{SENDER_NAME}}</div>
+    <div class="addr">{{SENDER_ADDRESS_LINE}}</div>
+  </header>
+
+  <div class="date">{{LETTER_DATE}}</div>
+
+  <div class="to-block">
+    <strong>To:</strong> {{RECIPIENT_NAMES}}<br>
+    {{RECIPIENT_ADDRESS}}<br>
+    {{RECIPIENT_CONTACT}}
+  </div>
+
+  <div class="re-block">
+    <div class="title">RE: {{LETTER_RE}}</div>
+    {{RE_DETAILS}}
+  </div>
+
+  {{BODY}}
+
+  <!-- Sign-off -->
+  <div class="signature">
+    <p>Respectfully,</p>
+    <div class="sig-line"></div>
+    <div class="signer">{{SIGNER_LINE_1}}</div>
+    <div class="signer-title">{{SIGNER_LINE_2}}</div>
+    <div class="signer-title">{{SIGNER_LINE_3}}</div>
+  </div>
+
+  <!-- GenHealth attribution / look-us-up badge — bottom of letter -->
+  <div class="genhealth-badge bottom">
+    <div class="logo">
+      <svg viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="m526.56024 182.67761l0 0c0 -73.71044 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061405 94.37366 39.090866c25.02948 25.029465 39.09088 58.976692 39.09088 94.373695l0 0l0 0c0 73.71045 -59.75415 133.46457 -133.46454 133.46457l0 0l0 0c-73.71045 0 -133.4646 -59.75412 -133.4646 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m526.56024 777.3275l0 0c0 -73.71045 59.75415 -133.46454 133.4646 -133.46454l0 0l0 0c35.396973 0 69.34424 14.061401 94.37366 39.09088c25.02948 25.029419 39.09088 58.976685 39.09088 94.37366l0 0l0 0c0 73.71045 -59.75415 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m694.3048 480.00256l0 0c0 -73.71045 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061432 94.37372 39.09088c25.029419 25.02945 39.09082 58.976685 39.09082 94.37369l0 0l0 0c0 73.71045 -59.75409 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 182.67183l0 0c0 -73.71044 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34425 14.061405 -94.3737 39.090866c-25.029465 25.029465 -39.090866 58.976692 -39.090866 94.373695l0 0l0 0c0 73.710464 59.75412 133.46458 133.46457 133.46458l0 0l0 0c73.71045 0 133.46457 -59.75412 133.46457 -133.46458z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 777.3217l0 0c0 -73.71039 -59.75412 -133.46454 -133.46457 -133.46454l0 0l0 0c-35.397003 0 -69.34425 14.061401 -94.3737 39.09088c-25.029465 25.029419 -39.090866 58.976685 -39.090866 94.37366l0 0l0 0c0 73.71045 59.75412 133.4646 133.46457 133.4646l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m265.69492 479.9968l0 0c0 -73.71045 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34424 14.061401 -94.3737 39.09085c-25.02946 25.02948 -39.090866 58.976715 -39.090866 94.37372l0 0l0 0c0 73.71042 59.754124 133.46457 133.46457 133.46457l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m754.7533 368.7874l0 0c0 70.60547 -122.8432 127.8425 -274.37796 127.8425c-151.53476 0 -274.37796 -57.23703 -274.37796 -127.8425l0 0c64.77185 40.23935 166.42487 63.921234 274.37796 63.921234c107.953094 0 209.60611 -23.681885 274.37796 -63.921234z" fill-rule="evenodd"/><path fill="currentColor" d="m205.23622 591.53546l0 0c0 -70.60553 122.97011 -127.84256 274.66144 -127.84256c151.69128 0 274.66144 57.23703 274.66144 127.84256l0 0c-64.838806 -40.23938 -166.59686 -63.921265 -274.66144 -63.921265c-108.064606 0 -209.82266 23.681885 -274.66144 63.921265z" fill-rule="evenodd"/><path fill="currentColor" d="m256.38757 429.60492l144.75589 50.393707l-144.75589 50.393707z" fill-rule="evenodd"/><path fill="currentColor" d="m732.3954 530.401l-144.75592 -50.393738l144.75592 -50.393677z" fill-rule="evenodd"/></svg>
+      <span class="word">GenHealth<span class="tld">.ai</span></span>
+    </div>
+    <div class="copy">
+      <strong>Drafted with GenHealth — AI for DME &amp; provider workflows.</strong>
+      Helps your team automate intake, prior-auth review, and referral-source response.
+      &nbsp;&nbsp;<a href="https://genhealth.ai">genhealth.ai</a> &nbsp;·&nbsp; <a href="https://genhealth.ai/demo">Book a demo</a>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">{{DISCLAIMER}}</div>
+
+</div>
+</body>
+</html>

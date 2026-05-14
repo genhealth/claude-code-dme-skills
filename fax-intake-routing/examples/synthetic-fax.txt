@@ -1,0 +1,47 @@
+SYNTHETIC TEST DATA — generated for skill testing. No real PHI.
+================================================================
+
+------ Fax received: 2026-05-12 09:14 EDT ------
+PAGES: 11
+FROM: Riverside Sleep & Pulmonology — 612-555-0142
+TO:   Lakeside DME — Intake Queue
+
+PATIENT
+  Name:        Jane R. Doe
+  DOB:         1971-04-22
+  Address:     412 Elm Street, Minneapolis, MN 55401
+  Phone:       612-555-0917
+  Insurance:   BCBS MN — Member ID 88291XJ4 (verified 2026-05-10)
+
+ORDERING PROVIDER
+  Name:        Dr. R. Patel, MD
+  NPI:         1730294711
+  Practice:    Riverside Sleep & Pulmonology
+  Phone:       612-555-0142
+
+DIAGNOSIS
+  G47.33   Obstructive sleep apnea, adult
+
+ORDER
+  HCPCS:     E0601  — Continuous positive airway pressure (CPAP) device
+  Pressure:  9 cm H2O
+  Mask:      Standard nasal pillow, M
+  Supplies:  Standard 90-day kit
+
+ATTACHMENTS (11 pages total)
+  - Sleep study report dated 2026-05-01
+      AHI:        14.2 events/hour
+      SpO2 nadir: 84%
+      Total sleep time: 387 min
+  - Face-to-face evaluation note dated 2026-05-08
+      Epworth Sleepiness Scale: 15
+      Comorbidities: HTN, BMI 32
+  - Signed Rx (handwritten, legible)
+  - Patient demographic intake form
+  - Insurance card copy (front + back)
+
+URGENCY: Standard (non-urgent, not post-discharge)
+
+NOTES
+  Patient was previously evaluated 2025-11-04 — no CPAP issued at that time.
+  Provider requesting setup within 14 business days.

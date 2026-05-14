@@ -1,0 +1,44 @@
+{
+  "_note": "SYNTHETIC TEST DATA — generated for skill testing. No real PHI.",
+  "patient": {
+    "name": "Jane R. Doe",
+    "dob": "1971-04-22",
+    "age_yrs": 55,
+    "sex": "F",
+    "bmi": 32,
+    "comorbidities": ["HTN"]
+  },
+  "insurance": {
+    "payer": "BCBS MN",
+    "member_id": "88291XJ4",
+    "plan_type": "Commercial PPO"
+  },
+  "diagnosis": {
+    "icd10": ["G47.33"],
+    "description": "Obstructive sleep apnea, adult, moderate"
+  },
+  "requested": {
+    "hcpcs": "E0601",
+    "description": "Continuous positive airway pressure (CPAP) device",
+    "parameters": "9 cm H2O, nasal pillow mask size M",
+    "planned_dos": "2026-06-02"
+  },
+  "prescribing_physician": {
+    "name": "Dr. R. Patel, MD",
+    "npi": "1730294711",
+    "practice": "Riverside Sleep & Pulmonology"
+  },
+  "clinical_findings": [
+    {
+      "source_doc": "Polysomnography report",
+      "source_date": "2026-05-01",
+      "finding": "AHI 14.2 events/hour with SpO2 nadir 84%, total sleep time 387 min"
+    },
+    {
+      "source_doc": "Face-to-face evaluation",
+      "source_date": "2026-05-08",
+      "finding": "Epworth Sleepiness Scale 15; daytime hypersomnolence reported; no prior CPAP trial"
+    }
+  ],
+  "payer_policy_text": "LCD L33718 — Positive Airway Pressure (PAP) Devices for the Treatment of Obstructive Sleep Apnea\n\n§II.A — Initial coverage:\n  1.b Patient must have documented obstructive sleep apnea by:\n      - AHI ≥ 5 with documented symptoms (Epworth, hypersomnolence, etc.), OR\n      - AHI ≥ 15 regardless of symptoms\n  2.   Symptomatic impact must be documented in the F2F evaluation, including but not limited to: daytime hypersomnolence, fatigue, neurocognitive impairment, or comorbid cardiovascular disease.\n  3.   Face-to-face evaluation must occur within 6 months of the sleep study and must be performed by the treating provider."
+}

@@ -1,0 +1,85 @@
+SYNTHETIC TEST DATA — generated for skill testing. No real PHI.
+================================================================
+
+INTAKE REVIEW FINDINGS · CASE: Marie Curie (synthetic)
+
+Sender (DME):
+  Boston Orthotics & Prosthetics
+  300 Longwood Avenue, Boston, MA 02115
+  Intake (617) 555-0142 · Fax (617) 555-0143
+
+Recipient (referring office):
+  Arjun Raj, DPM / Gregory House, MD
+  2121 Pingsten Rd, Dedham, MA 02109
+  Phone (912) 219-2310 · Fax (912) 219-2311
+
+Patient:
+  Marie Curie · DOB 12/05/1900 · DOS (eval) 02/24/2024
+
+Items ordered:
+  HCPCS L3020 (Custom Molded Longitudinal/Metatarsal Arch Support)
+  Bilateral · qty 1 ea
+
+Payer context:
+  BCBS PPO (HIOPT plan). For BCBS commercial: most cover L3020 only with
+  documented conservative-care trial + clear biomechanical rationale for
+  custom (vs. prefab). If patient is also Medicare-eligible: standalone L3020
+  is statutorily non-covered (SSA §1862(a)(13)(C)) unless integral to a
+  covered AFO/KAFO leg brace or under the Therapeutic Shoes for Diabetics
+  benefit.
+
+Issues identified (8) [issue · payer impact]:
+  1. SWO signature date is 2/30/2024 (invalid calendar date) · Order may be
+     treated as unsigned; payer requests a corrected SWO.
+  2. Prescriber on SWO (Arjun Raj, DPM) differs from clinician who signed the
+     clinical summary (Gregory House, MD) · Payer requires the F2F to be
+     performed/co-signed by the ordering provider on the SWO.
+  3. No conservative care trial documented (OTC inserts, PT, NSAIDs, activity
+     modification) · Most commercial payers require 3–6 mo of documented
+     conservative care prior to authorizing custom orthotics.
+  4. No imaging or radiology report supporting M19.071 osteoarthritis dx ·
+     Strengthens medical-necessity case; required by some plans on appeal.
+  5. No measurable functional baseline (pain score, ROM degrees, ambulation
+     distance, gait findings) · Reviewers expect quantifiable metrics.
+  6. Biomechanical rationale for custom fabrication checked but not described
+     (alignment, callus pattern, deformity measurements) · Required to
+     justify L3020 over a prefabricated alternative.
+  7. Insurance card shows placeholder text ("Member Name") rather than
+     subscriber's name; only front of card sent · Cannot verify benefits or
+     call for PA without clean front + back image and actual member ID.
+  8. No patient demographic sheet, AOB, or HIPAA release on file · Standard
+     supplier intake requirements; needed before billing or releasing records.
+
+Information requested (10):
+  1. Corrected SWO with valid signature date and ordering provider's printed
+     name + NPI.
+  2. Reconciled prescriber: confirm whether Dr. Raj or Dr. House is the
+     ordering provider; provide that clinician's signed F2F note for the
+     02/24/2024 evaluation.
+  3. Conservative care documentation (chart note describing prior
+     interventions, duration, clinical reason for failure).
+  4. Imaging report (foot/ankle X-ray) supporting the M19.071 dx, if
+     available.
+  5. Measurable findings: pain score (NRS or VAS), ROM in degrees, ambulation
+     distance/tolerance, gait observations.
+  6. Biomechanical rationale for custom fabrication: arch height, hindfoot/
+     forefoot alignment, callus location and severity, deformity measurements,
+     and why a prefab orthotic would not meet the patient's needs.
+  7. Surgical history with dates (3 bunion surgeries, heel spur surgeries,
+     5th toe surgery referenced in chart).
+  8. Treatment plan with measurable goals and planned follow-up date.
+  9. Clean copy of insurance card — front and back — with subscriber's name
+     and member ID legible.
+  10. Demographic sheet confirming address, phone, primary vs. secondary
+      insurance status.
+
+Return-by deadline: 10 business days · fax to (617) 555-0143
+
+Signer:
+  Intake Coordinator
+  Boston Orthotics & Prosthetics
+  intake@boston-op.example · (617) 555-0142
+
+INVOKE: ask Claude Code to "draft a documentation request to the referring
+office" using this packet. The skill should select referral_source ·
+documentation_request mode automatically.

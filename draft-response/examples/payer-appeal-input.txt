@@ -1,0 +1,50 @@
+SYNTHETIC TEST DATA — generated for skill testing. No real PHI.
+================================================================
+
+BCBS MINNESOTA
+P.O. Box 64560
+St. Paul, MN 55164-0560
+
+EXPLANATION OF PAYMENT / DENIAL NOTICE
+Date issued:        2026-05-04
+
+Provider:           Lakeside DME
+Provider NPI:       1881992041
+Tax ID:             XX-XXXXXXX
+
+Patient:            Doe, Jane R.
+Member ID:          88291XJ4
+DOB:                1971-04-22
+
+Claim Number:       DME-90412
+Date of service:    2026-04-15
+Place of service:   12 (Home)
+Billed amount:      $2,840.00
+Allowed amount:     $0.00
+Paid amount:        $0.00
+Patient resp:       $0.00
+
+DENIED — see remark codes below.
+
+Line items:
+  1. HCPCS E0601 — CPAP device                           Billed $2,840.00     Denied
+
+REMARK CODES
+  CO-50   These are non-covered services because this is not deemed a
+          "medical necessity" by the payer.
+  N115    This decision was based on a Local Coverage Determination
+          (LCD). An LCD provides a guide to assist in determining
+          whether a particular item or service is covered.
+
+APPEAL RIGHTS
+You may appeal this decision within 180 days. Submit additional clinical
+documentation supporting medical necessity per LCD L33718 (PAP Devices
+for the Treatment of Obstructive Sleep Apnea), specifically the face-
+to-face evaluation and documentation of symptomatic impact (§II.A.2).
+
+To appeal, submit:
+  - Written appeal request
+  - Supporting clinical documentation
+  - This denial notice (reference)
+
+Mail appeals to address on file or fax to: 651-555-0199

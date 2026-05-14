@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Skill outputs (generated locally, not version-controlled)
+skill-output/
+*.pdf
+!**/examples/*.pdf
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python (in case anyone scripts here)
+__pycache__/
+*.pyc
+.venv/
+venv/
