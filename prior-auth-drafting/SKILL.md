@@ -1,6 +1,6 @@
 ---
 name: prior-auth-drafting
-description: Review a prior-auth case against the payer's LCD or coverage policy BEFORE drafting — issue a verdict (SUBMIT / NEEDS DOCS / DON'T SUBMIT) based on whether the requested HCPCS is in scope and whether the clinical evidence meets each coverage criterion. If the verdict is SUBMIT or NEEDS DOCS, draft the medical-necessity narrative citing each met criterion. If DON'T SUBMIT, output the specific reason (wrong LCD, statutory non-coverage, missing required evidence) and a "what to do instead" recommendation. Use when the user has a requested code + diagnosis + clinical findings + payer policy text and wants to know whether to submit (and what the letter would say if they do). Triggers on phrases like "review this prior auth", "should we submit", "pa review", "draft prior auth", "draft medical necessity", "check coverage scope", "PA narrative", "medical necessity letter", "write a PA for this patient", "is this case viable".
+description: Review a prior-auth case against the payer's LCD or coverage policy BEFORE drafting — issue a verdict (SUBMIT / NEEDS DOCS / DON'T SUBMIT) based on whether the requested HCPCS is in scope and whether the clinical evidence meets each coverage criterion. If the verdict is SUBMIT or NEEDS DOCS, draft the medical-necessity narrative citing each met criterion. If DON'T SUBMIT, output the specific reason (wrong LCD, statutory non-coverage, missing required evidence) and a "what to do instead" recommendation. The payer policy can be pasted text OR a CMS LCD URL the skill fetches and extracts itself. Use when the user has a requested code + diagnosis + clinical findings + a payer policy (text or LCD link) and wants to know whether to submit. Triggers on phrases like "review this prior auth", "should we submit", "pa review", "draft prior auth", "draft medical necessity", "check coverage scope", "check this LCD", "pull the policy from this link", "PA narrative", "medical necessity letter", "write a PA for this patient", "is this case viable".
 ---
 
 # Prior-Auth Review (with Conditional Drafting)
@@ -9,8 +9,9 @@ A pre-submission review skill. **Always runs the coverage check first.** Only dr
 
 ## When to invoke
 
-- The user has a requested HCPCS code + ICD-10 + clinical findings + payer policy text and wants to know whether to submit
+- The user has a requested HCPCS code + ICD-10 + clinical findings + payer policy (pasted text or a CMS LCD link) and wants to know whether to submit
 - The user asks "should we submit this PA?" / "review this case" / "is this viable?"
+- The user drops in a CMS LCD URL and asks you to check the case against it
 - The user pastes findings from fax-intake-routing that suggest a PA is needed and wants the next step
 - The user explicitly asks for a medical-necessity narrative — still run the review first; the narrative is the second half
 
@@ -32,10 +33,25 @@ If any are missing, ask once with a bulleted list.
 | Diagnosis (ICD-10) | "M19.071 OA right ankle/foot" |
 | Requested HCPCS | "L3020" |
 | Side / quantity / parameters | "bilateral, qty 1 ea" |
-| Payer + policy text | "Medicare · LCD L33686" + paste the relevant sections |
+| Payer + policy | "Medicare · LCD L33686" — paste the relevant sections, **or** give the CMS LCD URL and the skill fetches it (see *Fetching a policy from a URL* below) |
 | Clinical findings | each with source doc + date |
 | Prescribing physician | name + NPI |
 | Planned DOS | "2026-06-02" |
+
+## Fetching a policy from a URL
+
+If the user provides a **CMS LCD URL** — e.g. `https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?LCDId=33686` — or another public payer-policy URL instead of pasting the text, fetch and extract it yourself:
+
+1. **Download the page** with `curl` (CMS pages are slow for some fetch tools but reliably curl-able — use `curl`, not WebFetch):
+   ```bash
+   curl -s -L -A "Mozilla/5.0" "<policy URL>" -o /tmp/policy.html
+   ```
+2. **Strip scripts/styles/tags** and pull the sections that matter. For a CMS LCD:
+   - **"Coverage Indications, Limitations, and/or Medical Necessity"** — the actual criteria
+   - **The CPT/HCPCS code list** — to confirm whether the requested code is in scope
+   - **The ICD-10 "supports / does not support medical necessity" lists**
+3. **Confirm the extracted scope with the user before proceeding** — echo back the LCD title, the covered-HCPCS summary, and whether the requested code is in scope. Let the user sanity-check you grabbed the right policy and the right sections.
+4. From there, treat the fetched text exactly like pasted policy text — same criteria mapping, same "no invented citations" rule. Cite the LCD ID and the section numbers you actually extracted.
 
 ## The verdict states
 
@@ -45,7 +61,7 @@ If any are missing, ask once with a bulleted list.
 
 ## Workflow
 
-1. **Verify inputs**, especially the pasted policy text. If the policy isn't pasted, ask for it.
+1. **Verify inputs**, especially the policy. If the user gave a CMS LCD URL (or another payer-policy URL) instead of pasted text, fetch and extract it first — see *Fetching a policy from a URL* above. If no policy is provided at all, ask for it.
 2. **Coverage scope check** — does the requested HCPCS appear in the policy's covered-codes list?
    - If NO → verdict is **DON'T SUBMIT**. Skip criteria evaluation. Generate the "alternatives" guidance.
    - If YES → proceed.
