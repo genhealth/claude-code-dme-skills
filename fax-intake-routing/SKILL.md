@@ -46,7 +46,7 @@ In the chat reply (after generating the HTML), do NOT echo raw PHI — name + su
 - `new_order` — first-time equipment or service order
 - `refill` — replacement / resupply request
 - `cmn` — Certificate of Medical Necessity update
-- `denial` — payer denial (recommend the denial-letter-triage skill instead)
+- `denial` — payer denial (route to your AR / appeals queue; if appealing, invoke the `draft-response` skill in `payer · appeal` mode to draft the letter)
 - `unknown` — confidence too low to categorize
 
 ## JSON shape (for the raw-data section)
