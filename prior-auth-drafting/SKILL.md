@@ -161,6 +161,6 @@ The hero verdict color matches the state:
 
 ## Reference example
 
-`./skill-output/sample-pa-review-preview.html` is the canonical example — Marie Curie's L3020 order reviewed against LCD L33686, verdict DON'T SUBMIT, with the three alternative pathways laid out (diabetic shoes / ABN self-pay / rewrite as AFO). Match that level of specificity in the verdict reasoning and the "what to do instead" actionability.
+`examples/sample-output.html` is the canonical example — Marie Curie's L3020 order reviewed against LCD L33686, verdict DON'T SUBMIT, with the three alternative pathways laid out (diabetic shoes / ABN self-pay / rewrite as AFO). Match that level of specificity in the verdict reasoning and the "what to do instead" actionability.
 
 When the verdict turns out to be SUBMIT or NEEDS DOCS instead, also include the drafted narrative letter (header block + 3 paragraphs + closing) in a final `card.blue` below the criteria/evidence cards.

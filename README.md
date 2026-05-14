@@ -34,17 +34,18 @@ claude-code-dme-skills/
 │   ├── SKILL.md
 │   └── examples/
 │       ├── synthetic-fax.txt
-│       └── expected-output.json
+│       └── sample-output.html       ← rendered dashboard for the synthetic fax
 ├── prior-auth-drafting/
 │   ├── SKILL.md
 │   └── examples/
 │       ├── synthetic-input.json
-│       └── expected-output.md
+│       └── sample-output.html       ← rendered DON'T SUBMIT verdict dashboard
 └── draft-response/
     ├── SKILL.md
     └── examples/
         ├── referral-source-input.txt
-        └── payer-appeal-input.txt
+        ├── payer-appeal-input.txt
+        └── sample-output.html       ← rendered referral-source letter (Marie Curie case)
 ```
 
 The `_shared/` folder holds two HTML templates that the skills read at runtime to produce their outputs. Don't move or rename it — the SKILL.md files reference paths inside `~/.claude/skills/_shared/`.
@@ -93,7 +94,7 @@ Each skill folder has an `examples/` directory with at least one synthetic input
    - *"Review this prior auth: ..."* (paste `prior-auth-drafting/examples/synthetic-input.json` along with the relevant LCD policy text)
    - *"Draft a documentation request to the referring office for this case: ..."* (paste `draft-response/examples/referral-source-input.txt`)
 3. Watch the skill produce its output in `./skill-output/` and open it in your browser (or for `draft-response`, the PDF in your default PDF viewer).
-4. Compare to the `expected-output.*` reference where one is provided.
+4. Compare to the `sample-output.html` reference. (Open it in any browser — each sample is self-contained, no build step.)
 
 All synthetic data is clearly marked. **Do not paste real PHI** into a Claude Code session that doesn't have a HIPAA-compliant backend (BAA + Amazon Bedrock or equivalent).
 

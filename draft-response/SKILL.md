@@ -215,6 +215,6 @@ Similar to appeal, but explicitly reference the prior appeal: *"This is a second
 
 ## Reference example
 
-`./skill-output/MarieCurie_L3020_PrescriberInfoRequest.pdf` is the canonical `referral_source · documentation_request` example — Boston Orthotics asking Drs. Raj/House for 10 specific docs before submitting Marie's L3020 order to BCBS. Match that level of specificity in the issues and asks.
+`examples/sample-output.html` is the canonical `referral_source · documentation_request` example — Boston Orthotics asking Drs. Raj/House for 10 specific docs before submitting Marie's L3020 order to BCBS. Match that level of specificity in the issues and asks. (The same content, converted to PDF by the skill, is what gets faxed.)
 
 Other modes follow the same template (letterhead + RE block + body + signature + GenHealth bars top & bottom) with the appropriate body structure swapped in.
