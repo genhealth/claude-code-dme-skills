@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fax Routing · Foot Orthotics New Order — GenHealth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   GENHEALTH DASHBOARD TEMPLATE
+   Single-viewport report — wordmark top-left,
+   multi-column body, compact CTA + footer pinned.
+   =========================================== */
+
+:root {
+  --blue: #0648C0;
+  --ink: #0B0D10;
+  --ink-soft: #212529;
+  --paper: #FFFFFF;
+  --cream: #F4F2D2;
+  --cream-soft: #FAF8E3;
+  --mint: #AEFC99;
+  --mint-soft: #C3F4C7;
+  --mint-deep: #55CC1F;
+  --rule: #E4E4DA;
+  --rule-ink: #1B1F24;
+  --warn: #c9192e;
+  --warn-soft: #fde7e9;
+  --amber: #FFD166;
+
+  --sans: "Lexend", system-ui, -apple-system, sans-serif;
+  --serif: "Crimson Pro", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--sans);
+  background: var(--cream-soft);
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===========================================
+   DASHBOARD SHELL — flex column, fills viewport
+   =========================================== */
+.dashboard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0.8rem 1rem 0.6rem;
+  gap: 0.7rem;
+  min-height: 0;
+}
+
+/* ===========================================
+   HEADER — wordmark hard-left, meta right
+   =========================================== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  background: var(--ink);
+  color: var(--cream-soft);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cream-soft);
+  transition: opacity 0.15s ease;
+}
+.logo:hover { opacity: 0.85; }
+.logo .logo-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.logo .word {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+.logo .word .tld {
+  font-weight: 500;
+  opacity: 0.85;
+}
+.header-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-soft);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.header-meta .dot {
+  width: 4px; height: 4px;
+  background: var(--mint);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ===========================================
+   BODY — main report card, fills available space
+   =========================================== */
+.page-body {
+  flex: 1;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* ===========================================
+   TITLE BLOCK — kicker + h1 + hero
+   =========================================== */
+.title-block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.2rem;
+  align-items: end;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.85rem;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.kicker::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--blue);
+}
+h1.title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+}
+h1.title em { font-style: italic; color: var(--blue); }
+
+/* Right-side hero strip in the title block */
+.hero-mini {
+  background: var(--cream-soft);
+  border: 1px solid var(--rule-ink);
+  border-radius: 3px;
+  padding: 0.55rem 0.95rem;
+  min-width: 280px;
+}
+.hero-mini .label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.15rem;
+}
+.hero-mini .value {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.05;
+  margin-bottom: 0.15rem;
+}
+.hero-mini .sub {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+/* ===========================================
+   GRID LAYOUTS — cards in 2 or 3 columns
+   =========================================== */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+.cards-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+}
+.cards-mixed {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.7rem;
+}
+
+/* ===========================================
+   CARD — bordered box with section header
+   =========================================== */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+  border-radius: 2px;
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 0;
+}
+.card.cream { background: var(--cream-soft); }
+.card.blue { border-top-color: var(--blue); }
+.card.mint { border-top-color: var(--mint-deep); }
+.card.warn { border-top-color: var(--warn); }
+
+.card h2 {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+.card-h-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.card-h-row h2 { margin-bottom: 0; }
+.card-h-row .copy-btn { padding: 2px 8px; }
+
+/* ===========================================
+   FIELD ROW — compact label / value / copy
+   =========================================== */
+.field {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.field:last-child { border-bottom: none; }
+.field .label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.field .value {
+  font-family: var(--sans);
+  color: var(--ink);
+  word-break: break-word;
+}
+.field .value.mono { font-family: var(--mono); font-size: 12px; }
+.field .value.muted { color: var(--ink-soft); opacity: 0.7; font-style: italic; }
+.field .placeholder { width: 0; }
+
+/* Tighter field variant for dense cards */
+.field-tight {
+  grid-template-columns: 84px 1fr auto;
+  padding: 0.2rem 0;
+  font-size: 12.5px;
+}
+
+/* ===========================================
+   COPY BUTTON
+   =========================================== */
+.copy-btn {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--rule-ink);
+  background: var(--paper);
+  border-radius: 2px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.copy-btn:hover { background: var(--ink); color: var(--cream-soft); }
+.copy-btn.copied { background: var(--mint); color: var(--ink); border-color: var(--mint-deep); }
+
+/* ===========================================
+   CHIPS
+   =========================================== */
+.chip {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 3px 7px;
+  margin: 0 3px 3px 0;
+  border-radius: 100px;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.3;
+}
+.chip.blue { background: var(--blue); color: var(--cream-soft); }
+.chip.mint { background: var(--mint); color: var(--ink); }
+.chip.muted { background: var(--rule); color: var(--ink-soft); }
+.chip.warn { background: var(--warn-soft); color: var(--warn); }
+.chip.ink { background: var(--ink); color: var(--cream-soft); }
+
+/* ===========================================
+   CALLOUTS
+   =========================================== */
+.callout {
+  background: var(--cream-soft);
+  border-left: 3px solid var(--mint-deep);
+  padding: 0.55rem 0.8rem;
+  border-radius: 0 2px 2px 0;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.callout.warn { border-left-color: var(--warn); background: var(--warn-soft); color: var(--ink); }
+.callout.blue { border-left-color: var(--blue); }
+.callout .label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.15rem;
+}
+
+/* ===========================================
+   CONFIDENCE / PRIORITY BAR
+   =========================================== */
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.confidence-bar {
+  background: var(--rule);
+  height: 4px;
+  width: 70px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.confidence-bar .fill {
+  height: 100%;
+  background: var(--mint-deep);
+}
+.confidence-bar .fill.low { background: var(--warn); }
+.confidence-bar .fill.med { background: var(--amber); }
+
+/* ===========================================
+   LETTER (prior-auth narrative)
+   =========================================== */
+.letter {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  line-height: 1.55;
+  padding: 0.95rem 1.1rem;
+  background: var(--cream-soft);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 2px 2px 0;
+  position: relative;
+  overflow-y: auto;
+}
+.letter p { margin-bottom: 0.5rem; }
+.letter p:last-child { margin-bottom: 0; }
+.letter strong { font-weight: 700; }
+.letter .header-block {
+  font-family: var(--mono);
+  font-size: 11px;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--rule);
+}
+.letter .meta {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  letter-spacing: 0.04em;
+}
+.letter .copy-btn {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+}
+
+/* ===========================================
+   CRITERIA / EVIDENCE LISTS
+   =========================================== */
+.crit-list, .evidence-list { list-style: none; }
+.crit-item, .evidence-item {
+  border-left: 3px solid var(--mint-deep);
+  background: var(--cream-soft);
+  padding: 0.45rem 0.7rem;
+  margin-bottom: 0.35rem;
+  border-radius: 0 2px 2px 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.crit-item strong {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.crit-item .meta {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+  letter-spacing: 0.04em;
+}
+.evidence-item { border-left-color: var(--blue); }
+
+/* ===========================================
+   RAW JSON (collapsed by default)
+   =========================================== */
+details.raw {
+  margin-top: auto;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.5rem;
+}
+details.raw summary {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0.25rem 0;
+  user-select: none;
+}
+details.raw summary::-webkit-details-marker { color: var(--blue); }
+details.raw .raw-wrap {
+  position: relative;
+  margin-top: 0.5rem;
+}
+details.raw pre {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  padding: 0.7rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  overflow-x: auto;
+  border-radius: 2px;
+  line-height: 1.45;
+  max-height: 240px;
+  overflow-y: auto;
+}
+details.raw .copy-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+}
+
+/* ===========================================
+   COMPACT CTA STRIP — single row
+   =========================================== */
+.cta {
+  background:
+    radial-gradient(ellipse at 95% 110%, rgba(174,252,153,0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 5% -10%, rgba(195,244,199,0.35) 0%, transparent 60%),
+    var(--cream);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  padding: 0.85rem 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.3rem;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: "g.";
+  position: absolute;
+  bottom: -1.2rem;
+  right: 0.5rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--mint-deep);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.cta-text { position: relative; z-index: 1; }
+.cta-text .eyebrow {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.15rem;
+}
+.cta-text h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+.cta-text h2 em { font-style: italic; color: var(--blue); }
+.cta-text p {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 78ch;
+}
+.cta-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--blue);
+  color: var(--cream-soft);
+  border: 1px solid var(--blue);
+}
+.btn-primary:hover {
+  background: #0540ac;
+  box-shadow: 0 8px 18px rgba(6,72,192,0.25);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--cream-soft);
+}
+
+/* ===========================================
+   FOOTER — pinned thin strip
+   =========================================== */
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1.1rem;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+.page-footer .warn { color: var(--warn); }
+.page-footer a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.page-footer a:hover {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+/* ===========================================
+   RESPONSIVE — collapse columns under 980px
+   =========================================== */
+@media (max-width: 980px) {
+  body { overflow: auto; }
+  .cards-3 { grid-template-columns: repeat(2, 1fr); }
+  .cards-mixed { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .cards-3, .cards-2 { grid-template-columns: 1fr; }
+  .title-block { grid-template-columns: 1fr; }
+  .cta { grid-template-columns: 1fr; }
+  .cta-actions { width: 100%; }
+  .btn-primary, .btn-secondary { flex: 1; justify-content: center; }
+  .page-header { flex-direction: column; gap: 0.3rem; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+  <!-- HEADER — wordmark hard-left -->
+  <header class="page-header">
+    <a class="logo" href="https://genhealth.ai" target="_blank" rel="noopener" title="genhealth.ai">
+      <svg class="logo-icon" viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" fill-opacity="0" d="m0 0l960.0 0l0 960.0l-960.0 0z" fill-rule="evenodd"/><path fill="currentColor" d="m526.56024 182.67761l0 0c0 -73.71044 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061405 94.37366 39.090866c25.02948 25.029465 39.09088 58.976692 39.09088 94.373695l0 0l0 0c0 73.71045 -59.75415 133.46457 -133.46454 133.46457l0 0l0 0c-73.71045 0 -133.4646 -59.75412 -133.4646 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m526.56024 777.3275l0 0c0 -73.71045 59.75415 -133.46454 133.4646 -133.46454l0 0l0 0c35.396973 0 69.34424 14.061401 94.37366 39.09088c25.02948 25.029419 39.09088 58.976685 39.09088 94.37366l0 0l0 0c0 73.71045 -59.75415 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m694.3048 480.00256l0 0c0 -73.71045 59.75415 -133.46457 133.4646 -133.46457l0 0l0 0c35.396973 0 69.34424 14.061432 94.37372 39.09088c25.029419 25.02945 39.09082 58.976685 39.09082 94.37369l0 0l0 0c0 73.71045 -59.75409 133.4646 -133.46454 133.4646l0 0l0 0c-73.71045 0 -133.4646 -59.75415 -133.4646 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 182.67183l0 0c0 -73.71044 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34425 14.061405 -94.3737 39.090866c-25.029465 25.029465 -39.090866 58.976692 -39.090866 94.373695l0 0l0 0c0 73.710464 59.75412 133.46458 133.46457 133.46458l0 0l0 0c73.71045 0 133.46457 -59.75412 133.46457 -133.46458z" fill-rule="evenodd"/><path fill="currentColor" d="m433.4395 777.3217l0 0c0 -73.71039 -59.75412 -133.46454 -133.46457 -133.46454l0 0l0 0c-35.397003 0 -69.34425 14.061401 -94.3737 39.09088c-25.029465 25.029419 -39.090866 58.976685 -39.090866 94.37366l0 0l0 0c0 73.71045 59.75412 133.4646 133.46457 133.4646l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.4646z" fill-rule="evenodd"/><path fill="currentColor" d="m265.69492 479.9968l0 0c0 -73.71045 -59.75412 -133.46457 -133.46457 -133.46457l0 0l0 0c-35.397003 0 -69.34424 14.061401 -94.3737 39.09085c-25.02946 25.02948 -39.090866 58.976715 -39.090866 94.37372l0 0l0 0c0 73.71042 59.754124 133.46457 133.46457 133.46457l0 0l0 0c73.71045 0 133.46457 -59.75415 133.46457 -133.46457z" fill-rule="evenodd"/><path fill="currentColor" d="m754.7533 368.7874l0 0c0 70.60547 -122.8432 127.8425 -274.37796 127.8425c-151.53476 0 -274.37796 -57.23703 -274.37796 -127.8425l0 0c64.77185 40.23935 166.42487 63.921234 274.37796 63.921234c107.953094 0 209.60611 -23.681885 274.37796 -63.921234z" fill-rule="evenodd"/><path fill="currentColor" d="m205.23622 591.53546l0 0c0 -70.60553 122.97011 -127.84256 274.66144 -127.84256c151.69128 0 274.66144 57.23703 274.66144 127.84256l0 0c-64.838806 -40.23938 -166.59686 -63.921265 -274.66144 -63.921265c-108.064606 0 -209.82266 23.681885 -274.66144 63.921265z" fill-rule="evenodd"/><path fill="currentColor" d="m256.38757 429.60492l144.75589 50.393707l-144.75589 50.393707z" fill-rule="evenodd"/><path fill="currentColor" d="m732.3954 530.401l-144.75592 -50.393738l144.75592 -50.393677z" fill-rule="evenodd"/></svg>
+      <span class="word">GenHealth<span class="tld">.ai</span></span>
+    </a>
+    <div class="header-meta">
+      <span>Fax Intake Routing</span>
+      <span class="dot"></span>
+      <span>2026-05-13 · 13:40</span>
+    </div>
+  </header>
+
+  <!-- BODY — skill-specific content (multi-column) -->
+  <main class="page-body">
+    <div class="title-block">
+  <div>
+    <span class="kicker">Fax routing result</span>
+    <h1 class="title">New foot-orthotic order · routes to <em>new_orders_foot_orthosis</em></h1>
+  </div>
+  <div class="hero-mini">
+    <div class="label">Target queue</div>
+    <div class="value">new_orders_foot_orthosis</div>
+    <div class="sub">3-page packet · BCBS PPO · standard urgency</div>
+  </div>
+</div>
+
+<div class="cards-3">
+
+  <div class="card blue">
+    <h2>Category &amp; Confidence</h2>
+    <div class="field field-tight">
+      <span class="label">Category</span>
+      <span class="value"><span class="chip blue">new_order</span></span>
+      <button class="copy-btn" data-copy="new_order">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Subtype</span>
+      <span class="value"><span class="chip mint">Foot Orthosis</span> <span class="chip">custom</span></span>
+      <button class="copy-btn" data-copy="Foot Orthosis (custom)">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Urgency</span>
+      <span class="value">standard <span style="color:var(--ink-soft); font-size:11px;">· delivery est. 03-01-2024</span></span>
+      <span class="placeholder"></span>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Confidence</span>
+      <span class="value">
+        <span class="confidence">
+          0.88
+          <span class="confidence-bar"><span class="fill" style="width:88%"></span></span>
+        </span>
+      </span>
+      <span class="placeholder"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Patient</h2>
+    <div class="field field-tight">
+      <span class="label">Name</span>
+      <span class="value">Marie Curie</span>
+      <button class="copy-btn" data-copy="Marie Curie">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">DOB</span>
+      <span class="value mono">1900-12-05</span>
+      <button class="copy-btn" data-copy="1900-12-05">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Address</span>
+      <span class="value">218 Forest Hills Ave, Boston MA 22180</span>
+      <button class="copy-btn" data-copy="218 Forest Hills Ave, Boston MA 22180">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Person #</span>
+      <span class="value mono">210943812</span>
+      <button class="copy-btn" data-copy="210943812">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Insurance</span>
+      <span class="value">BCBS PPO · <span class="mono" style="font-family:var(--mono); font-size:11.5px;">XYZ123456789</span></span>
+      <button class="copy-btn" data-copy="XYZ123456789">Copy</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Provider</h2>
+    <div class="field field-tight">
+      <span class="label">Prescriber</span>
+      <span class="value">Arjun Raj, DPM</span>
+      <button class="copy-btn" data-copy="Arjun Raj, DPM">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">NPI</span>
+      <span class="value mono">9182734556</span>
+      <button class="copy-btn" data-copy="9182734556">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Practice</span>
+      <span class="value">Boston Orthotics &amp; Prosthetics</span>
+      <button class="copy-btn" data-copy="Boston Orthotics &amp; Prosthetics">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Fax / Ph.</span>
+      <span class="value mono" style="font-size:11.5px;">912-219-2311 · 912-219-2310</span>
+      <button class="copy-btn" data-copy="912-219-2311">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Referring</span>
+      <span class="value">Gregory House, MD</span>
+      <button class="copy-btn" data-copy="Gregory House, MD">Copy</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="cards-3">
+
+  <div class="card mint">
+    <div class="card-h-row">
+      <h2>HCPCS &amp; ICD-10</h2>
+      <button class="copy-btn" data-copy-target="all-codes-payload">Copy all</button>
+    </div>
+    <div id="all-codes-payload" style="display:none;">HCPCS: L3020 (LT, RT)
+ICD-10: M19.071, M21.6x1, M21.6x2, M79.671, M79.672</div>
+    <div class="field field-tight">
+      <span class="label">HCPCS</span>
+      <span class="value mono">L3020 <span class="chip muted">LT</span><span class="chip muted">RT</span></span>
+      <button class="copy-btn" data-copy="L3020">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label">ICD-10</span>
+      <span class="value mono">M19.071</span>
+      <button class="copy-btn" data-copy="M19.071">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label"></span>
+      <span class="value mono">M21.6x1</span>
+      <button class="copy-btn" data-copy="M21.6x1">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label"></span>
+      <span class="value mono">M21.6x2</span>
+      <button class="copy-btn" data-copy="M21.6x2">Copy</button>
+    </div>
+    <div class="field field-tight">
+      <span class="label"></span>
+      <span class="value mono">M79.671 · M79.672</span>
+      <button class="copy-btn" data-copy="M79.671, M79.672">Copy</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Attachments detected (3 pages)</h2>
+    <div class="field field-tight">
+      <span class="label">Page 1</span>
+      <span class="value"><span class="chip mint">Standard Written Order</span></span>
+      <span class="placeholder"></span>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Pages 2–3</span>
+      <span class="value"><span class="chip mint">Clinical Summary</span></span>
+      <span class="placeholder"></span>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Page 5</span>
+      <span class="value"><span class="chip mint">Insurance Card</span></span>
+      <span class="placeholder"></span>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Eval</span>
+      <span class="value">New Eval · 02-24-2024 · office</span>
+      <span class="placeholder"></span>
+    </div>
+    <div class="field field-tight">
+      <span class="label">Reviewed by</span>
+      <span class="value">Gregory House, MD</span>
+      <span class="placeholder"></span>
+    </div>
+  </div>
+
+  <div class="card warn">
+    <h2>Flags · human review needed</h2>
+    <div class="callout warn" style="margin-bottom:0.35rem;">
+      <div class="label">Invalid date</div>
+      <span>Prescriber signature date is <strong style="font-family:var(--mono);">2/30/24</strong> — not a real calendar date. Confirm with prescriber.</span>
+    </div>
+    <div class="callout warn" style="margin-bottom:0.35rem;">
+      <div class="label">Date mismatch</div>
+      <span>Clinical summary header shows visit date <strong style="font-family:var(--mono);">02/12/24</strong> but body says <strong style="font-family:var(--mono);">02/24/24</strong>.</span>
+    </div>
+    <div class="callout" style="margin-bottom:0;">
+      <div class="label">DOB plausibility</div>
+      <span>DOB 1900-12-05 → age 124. Likely synthetic test data; verify if real.</span>
+    </div>
+  </div>
+
+</div>
+    <details class="raw">
+      <summary>Raw structured data (JSON)</summary>
+      <div class="raw-wrap">
+        <button class="copy-btn" data-copy-target="raw-json">Copy JSON</button>
+        <pre id="raw-json">{
+  "category": "new_order",
+  "subtype": "Foot Orthosis (custom)",
+  "patient": {
+    "name_present": true,
+    "dob_present": true,
+    "mrn_present": false,
+    "person_number_present": true,
+    "insurance_present": true,
+    "address_present": true
+  },
+  "ordering_provider": {
+    "name": "Arjun Raj, DPM",
+    "npi": "9182734556",
+    "practice": "Boston Orthotics & Prosthetics",
+    "phone": "912-219-2310",
+    "fax": "912-219-2311",
+    "referring_physician": "Gregory House, MD"
+  },
+  "hcpcs": ["L3020 LT", "L3020 RT"],
+  "icd10": ["M19.071", "M21.6x1", "M21.6x2", "M79.671", "M79.672"],
+  "attachments_detected": [
+    "standard_written_order",
+    "clinical_summary",
+    "insurance_card"
+  ],
+  "urgency": "standard",
+  "route_to_queue": "new_orders_foot_orthosis",
+  "flags": [
+    "invalid_signature_date",
+    "internal_date_mismatch",
+    "dob_plausibility"
+  ],
+  "confidence": 0.88
+}</pre>
+      </div>
+    </details>
+  </main>
+
+  <!-- CTA — compact horizontal strip -->
+  <section class="cta">
+    <div class="cta-text">
+      <div class="eyebrow">Why GenHealth</div>
+      <h2>These skills are a glimpse. <em>GenHealth is the whole picture.</em></h2>
+      <p>The skill that produced this report — denial triage, fax routing, or prior-auth drafting — is one step. GenHealth automates every step around it: queue orchestration, EHR + clearinghouse integration, payer-specific tuning, audit trails, and the compliance layer baked in. Built for DMEs and providers — not a generic AI product retrofitted to healthcare.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://genhealth.ai/demo" target="_blank" rel="noopener">Book a demo →</a>
+      <a class="btn-secondary" href="https://genhealth.ai" target="_blank" rel="noopener">Learn more</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div>Draft · human review required · <a href="https://genhealth.ai" target="_blank" rel="noopener">genhealth.ai</a></div>
+    <div class="warn">Synthetic test data</div>
+  </footer>
+
+</div>
+
+<script>
+/* Copy-to-clipboard delegated handler. Buttons use either
+   data-copy="value" or data-copy-target="elementId". */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+  let value = btn.dataset.copy;
+  if (!value && btn.dataset.copyTarget) {
+    const el = document.getElementById(btn.dataset.copyTarget);
+    value = el ? el.textContent : '';
+  }
+  if (!value) return;
+  navigator.clipboard.writeText(value).then(() => {
+    const orig = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = '✓';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = orig;
+    }, 1200);
+  }).catch(() => {
+    btn.textContent = '✗';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1200);
+  });
+});
+</script>
+</body>
+</html>
