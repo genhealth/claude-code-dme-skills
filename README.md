@@ -1,6 +1,6 @@
 # Claude Code Healthcare Skills
 
-Three production-ready [Claude Code](https://claude.com/claude-code) skills for the healthcare back office skills for the back office of a DME or provider practice.mdash; DMEs, medical groups, and provider practices. Each one slots into the workflow your team already runs — fax intake, prior-auth review, outbound correspondence — and produces a polished, GenHealth-styled artifact (HTML dashboard or PDF letter) every time.
+Three production-ready [Claude Code](https://claude.com/claude-code) skills for the healthcare back office — DMEs, medical groups, and provider practices. Each one slots into the workflow your team already runs — fax intake, prior-auth review, outbound correspondence — and produces a polished, GenHealth-styled artifact (HTML dashboard or PDF letter) every time.
 
 Open-sourced by **[GenHealth.ai](https://genhealth.ai)** — AI for the front office *and* the back office of healthcare delivery.
 
