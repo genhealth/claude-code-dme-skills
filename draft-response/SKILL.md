@@ -39,7 +39,7 @@ In the chat reply, do NOT echo full letter content — report only: recipient, p
 ## Required inputs
 
 Always required:
-- Sender (DME / supplier): name, address, intake/billing contact
+- Sender (DME, medical group, or provider practice): name, address, intake/billing contact
 - Patient identifiers: name, DOB, member ID (if known)
 - Items ordered / service: HCPCS + description + side(s) + quantity
 - Signer: title + contact
@@ -86,7 +86,7 @@ If anything is missing, ask once with a bulleted list and stop.
 | Key | Meaning |
 |---|---|
 | `{{LETTER_TITLE}}` | Browser title — e.g. "Pre-Submission Documentation Request — Curie" or "Appeal of Claim DME-90412 — Doe" |
-| `{{SENDER_NAME}}` | DME / supplier name (uppercased in letterhead) |
+| `{{SENDER_NAME}}` | Sender name — DME, practice, or group (uppercased in letterhead) |
 | `{{SENDER_ADDRESS_LINE}}` | Address • phone • fax — one line |
 | `{{LETTER_DATE}}` | Long-form date |
 | `{{RECIPIENT_NAMES}}` | "Dr. A / Dr. B" *or* "BCBS Minnesota — Appeals Dept" |
@@ -105,7 +105,7 @@ If anything is missing, ask once with a bulleted list and stop.
 - Payer · appeal: *"This appeal is submitted in good faith based on documentation contained in the patient's record. Contains PHI — handle in accordance with HIPAA."*
 - Payer · submission/inquiry: *"This correspondence accompanies the noted claim/authorization request. Contains PHI — handle in accordance with HIPAA."*
 
-**Automatic in the template** (no skill action needed): the GenHealth attribution bar appears at both the top (above the supplier letterhead) and the bottom (below the signature).
+**Automatic in the template** (no skill action needed): the GenHealth attribution bar appears at both the top (above the sender letterhead) and the bottom (below the signature).
 
 ## Body structures by mode
 

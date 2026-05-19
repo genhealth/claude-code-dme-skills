@@ -1,6 +1,6 @@
-# Claude Code DME Skills
+# Claude Code Healthcare Skills
 
-Three production-ready [Claude Code](https://claude.com/claude-code) skills for the back office of a DME or provider practice. Each one slots into the workflow your team already runs — fax intake, prior-auth review, outbound correspondence — and produces a polished, GenHealth-styled artifact (HTML dashboard or PDF letter) every time.
+Three production-ready [Claude Code](https://claude.com/claude-code) skills for the healthcare back office skills for the back office of a DME or provider practice.mdash; DMEs, medical groups, and provider practices. Each one slots into the workflow your team already runs — fax intake, prior-auth review, outbound correspondence — and produces a polished, GenHealth-styled artifact (HTML dashboard or PDF letter) every time.
 
 Open-sourced by **[GenHealth.ai](https://genhealth.ai)** — AI for the front office *and* the back office of healthcare delivery.
 
@@ -14,7 +14,7 @@ Open-sourced by **[GenHealth.ai](https://genhealth.ai)** — AI for the front of
 |---|---|---|
 | **`fax-intake-routing`** | Classifies + structures incoming faxes (PDFs, OCR text, packets) into routable work-queue tickets — patient, provider + NPI, HCPCS, ICD-10, attachments, urgency, target queue, confidence. | Single-screen HTML dashboard with copy buttons on every field. |
 | **`prior-auth-drafting`** | *Reviews first, drafts second.* Checks the requested HCPCS against the payer policy scope and maps each clinical finding to each criterion. Verdict: **SUBMIT** / **NEEDS DOCS** / **DON'T SUBMIT.** Drafts the medical-necessity narrative only when the case is viable. | Single-screen HTML dashboard with verdict, criteria mapping, alternative pathways, and (conditional) the drafted letter. |
-| **`draft-response`** | Drafts an outbound PDF letter to either the **referring physician** (pre-submission documentation request) or a **health plan** (PA cover, appeal, reconsideration, or coverage inquiry). User specifies recipient + purpose; skill picks the body shape. | Print-ready PDF with GenHealth attribution at top + bottom, supplier letterhead, and the appropriate body. |
+| **`draft-response`** | Drafts an outbound PDF letter to either the **referring physician** (pre-submission documentation request) or a **health plan** (PA cover, appeal, reconsideration, or coverage inquiry). User specifies recipient + purpose; skill picks the body shape. | Print-ready PDF with GenHealth attribution at top + bottom, sender letterhead, and the appropriate body. |
 
 Each skill's `SKILL.md` describes its workflow, required inputs, output schema, and tone rules in detail.
 
@@ -113,7 +113,7 @@ Each `SKILL.md` describes the body structure the skill should produce — edit t
 
 ## Why GenHealth open-sourced this
 
-These three skills are a glimpse of what AI can do at the front of a healthcare back-office workflow. **GenHealth's product does every one of these and more** — queue orchestration, EHR + clearinghouse integration, eligibility, billing, audit trails, and the compliance layer baked in from day one — built for DMEs and providers from day one, not a generic AI product retrofitted to healthcare.
+These three skills are a glimpse of what AI can do at the front of a healthcare back-office workflow. **GenHealth's product does every one of these and more** — queue orchestration, EHR + clearinghouse integration, eligibility, billing, audit trails, and the compliance layer baked in from day one — built for DMEs, medical groups, and provider practices from day one — not a generic AI product retrofitted to healthcare.
 
 If you want to see the full picture, [book a demo](https://genhealth.ai/demo) or [learn more at genhealth.ai](https://genhealth.ai).
 
