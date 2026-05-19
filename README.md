@@ -23,7 +23,7 @@ Each skill's `SKILL.md` describes its workflow, required inputs, output schema, 
 ## Repo layout
 
 ```
-claude-code-dme-skills/
+claude-code-healthcare-skills/
 ├── README.md                           ← you are here
 ├── LICENSE                             ← MIT + healthcare-specific disclaimer
 ├── _shared/
@@ -64,12 +64,12 @@ The `_shared/` folder holds two HTML templates that the skills read at runtime t
 
 ```bash
 # 1) Clone somewhere stable
-git clone https://github.com/genhealth/claude-code-dme-skills.git ~/code/claude-code-dme-skills
+git clone https://github.com/genhealth/claude-code-healthcare-skills.git ~/code/claude-code-healthcare-skills
 
 # 2) Symlink each skill folder + the shared assets into your global Claude Code skills directory
 mkdir -p ~/.claude/skills
 for d in fax-intake-routing prior-auth-drafting draft-response _shared; do
-  ln -s ~/code/claude-code-dme-skills/$d ~/.claude/skills/$d
+  ln -s ~/code/claude-code-healthcare-skills/$d ~/.claude/skills/$d
 done
 
 # 3) (Optional) verify
